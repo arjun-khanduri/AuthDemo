@@ -25,11 +25,11 @@ passport.deserializeUser(User.deserializeUser());
 
 //=====================================
 
-
-User.remove({},function(err){
-    if(err)
-        console.log(err);
-})
+    User.register(new User({username: 'admin12'}),'2412',function(err,user){
+        if(err){
+            console.log(err);
+        }
+    });
 app.get("/",function(req,res){
     res.redirect("/login");
 });

@@ -26,7 +26,10 @@ passport.deserializeUser(User.deserializeUser());
 //=====================================
 
 
-
+User.remove({},function(err){
+    if(err)
+        console.log(err);
+})
 app.get("/",function(req,res){
     res.redirect("/login");
 });
@@ -44,7 +47,7 @@ app.post("/register",function(req,res){
             res.render("register");
         }
         else
-            res.render("login");
+            res.redirect('/login');
     });
 });
 
